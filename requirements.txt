@@ -2,5 +2,5 @@ Flask
 Flask-Cors
 python-dotenv
 requests
-python-magic-bin
+python-magic==0.4.27
 pytest
