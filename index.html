@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d19">
+    <title>TrustVault | Your Private Digital Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="TrustVault home">
+            <span class="brand-icon">◆</span>
+            <span>TrustVault</span>
+        </a>
+
+        <div class="header-status">
+            <span class="security-label">● PRIVATE WORKSPACE</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- LOGIN AND REGISTRATION -->
+        <section id="auth-section" class="auth-layout">
+            <div class="hero">
+                <p class="eyebrow">YOUR PRIVATE DOCUMENT SPACE</p>
+                <h1>Important files.<br><span>Protected in one place.</span></h1>
+                <p class="hero-description">
+                    A calmer, smarter way to keep your important documents
+                    organized and within reach.
+                </p>
+
+                <div class="feature-points">
+                    <div class="feature-point">
+                        <span class="feature-icon">◇</span>
+                        <div>
+                            <strong>Private by account</strong>
+                            <p>Your files stay separated by user account.</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <span class="feature-icon">↗</span>
+                        <div>
+                            <strong>Easy file access</strong>
+                            <p>Upload and download your documents in one place.</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>You stay in control</strong>
+                            <p>Review your files and remove them when needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="panel auth-panel">
+                <div class="auth-card-top">
+                    <div class="auth-emblem">◆</div>
+                    <p class="eyebrow">WELCOME TO TRUSTVAULT</p>
+                </div>
+
+                <div class="tabs">
+                    <button id="login-tab" class="tab active" type="button">
+                        Login
+                    </button>
+                    <button id="register-tab" class="tab" type="button">
+                        Create account
+                    </button>
+                </div>
+
+                <form id="auth-form">
+                    <h2 id="auth-title">Welcome back</h2>
+                    <p id="auth-subtitle" class="muted">
+                        Log in to access your documents.
+                    </p>
+
+                    <div id="username-group" class="field hidden">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text"
+                               autocomplete="username"
+                               placeholder="Choose a username">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email"
+                               autocomplete="email"
+                               placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password"
+                               autocomplete="current-password"
+                               placeholder="At least 8 characters"
+                               minlength="8" required>
+                    </div>
+
+                    <button id="auth-submit"
+                            class="button primary full-width" type="submit">
+                        Log in securely
+                    </button>
+
+                    <p id="auth-message" class="message"
+                       role="status" aria-live="polite"></p>
+                </form>
+
+                <p class="auth-footnote">
+                    Your personal workspace starts here.
+                </p>
+            </section>
+        </section>
+
+        <!-- MAIN APPLICATION -->
+        <section id="dashboard" class="app-layout hidden">
+            <aside class="sidebar">
+                <div class="sidebar-heading">
+                    <span class="sidebar-label">WORKSPACE</span>
+                </div>
+
+                <nav class="side-navigation" aria-label="Main navigation">
+                    <button class="nav-item active" type="button"
+                            data-view="overview">
+                        <span class="nav-icon">⌂</span>
+                        <span>Overview</span>
+                    </button>
+
+                    <button class="nav-item" type="button"
+                            data-view="documents">
+                        <span class="nav-icon">▤</span>
+                        <span>My documents</span>
+                    </button>
+
+                    <button class="nav-item" type="button"
+                            data-view="upload">
+                        <span class="nav-icon">↑</span>
+                        <span>Upload files</span>
+                    </button>
+
+                    <button class="nav-item" type="button"
+                            data-view="security">
+                        <span class="nav-icon">◇</span>
+                        <span>Security center</span>
+                    </button>
+                </nav>
+
+                <div class="sidebar-bottom">
+                    <div class="sidebar-security">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Account privacy</strong>
+                            <p>Files are listed by account.</p>
+                        </div>
+                    </div>
+
+                    <button id="logout-button"
+                            class="button secondary full-width"
+                            type="button">
+                        ↗ Log out
+                    </button>
+                </div>
+            </aside>
+
+            <div class="app-content">
+                <!-- OVERVIEW VIEW -->
+                <section class="app-view active" data-page="overview">
+                    <div class="dashboard-heading">
+                        <div>
+                            <p class="eyebrow">YOUR WORKSPACE</p>
+                            <h2>Good to see you again.</h2>
+                            <p id="welcome-message" class="muted">
+                                Your personal vault is ready.
+                            </p>
+                        </div>
+
+                        <div class="account-indicator">
+                            <span class="status-dot"></span>
+                            <span>Account active</span>
+                        </div>
+                    </div>
+
+                    <section class="welcome-banner">
+                        <div class="banner-content">
+                            <p class="eyebrow">YOUR DIGITAL SAFE SPACE</p>
+                            <h2>Everything important,<br>in one place.</h2>
+                            <p>
+                                Keep your documents organized and ready
+                                whenever you need them.
+                            </p>
+                            <button class="button primary"
+                                    type="button" data-go="upload">
+                                <span>＋</span> Add a document
+                            </button>
+                        </div>
+
+                        <div class="banner-art" aria-hidden="true">
+                            <div class="orbit orbit-one"></div>
+                            <div class="orbit orbit-two"></div>
+                            <div class="vault-illustration">
+                                <span>◆</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="quick-actions">
+                        <button class="quick-action" type="button"
+                                data-go="documents">
+                            <span class="quick-action-icon">▤</span>
+                            <span>
+                                <strong>Browse documents</strong>
+                                <small>Find your saved files</small>
+                            </span>
+                            <span class="action-arrow">→</span>
+                        </button>
+
+                        <button class="quick-action" type="button"
+                                data-go="upload">
+                            <span class="quick-action-icon">↑</span>
+                            <span>
+                                <strong>Upload a file</strong>
+                                <small>Add something new</small>
+                            </span>
+                            <span class="action-arrow">→</span>
+                        </button>
+                    </div>
+
+                    <section class="panel overview-info">
+                        <div>
+                            <p class="eyebrow">YOUR FILE COLLECTION</p>
+                            <h3>Recent documents</h3>
+                            <p class="muted">
+                                Your saved documents appear here.
+                            </p>
+                        </div>
+                        <button class="button secondary" type="button"
+                                data-go="documents">
+                            View all →
+                        </button>
+                    </section>
+
+                    <div id="overview-documents" class="documents-list">
+                        <p class="muted">Loading your documents...</p>
+                    </div>
+                </section>
+
+                <!-- DOCUMENT LIBRARY VIEW -->
+                <section class="app-view" data-page="documents">
+                    <div class="page-heading">
+                        <p class="eyebrow">YOUR LIBRARY</p>
+                        <h2>My documents</h2>
+                        <p class="muted">
+                            Search, browse, download, or remove your saved files.
+                        </p>
+                    </div>
+
+                    <section class="panel documents-panel">
+                        <div class="documents-heading">
+                            <div>
+                                <h3>All stored files</h3>
+                                <p class="muted">
+                                    Only documents belonging to your account are listed.
+                                </p>
+                            </div>
+
+                            <button id="refresh-button"
+                                    class="button secondary" type="button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+                        <div class="vault-toolbar">
+                            <label class="search-field">
+                                <span>⌕</span>
+                                <input id="document-search" type="search"
+                                       placeholder="Search your documents..."
+                                       aria-label="Search documents">
+                            </label>
+
+                            <label class="filter-field">
+                                <span class="sr-only">Filter documents by type</span>
+                                <select id="document-filter">
+                                    <option value="all">All file types</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="image">Images</option>
+                                    <option value="document">Documents</option>
+                                    <option value="text">Text files</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div id="documents-list" class="documents-list">
+                            <p class="muted">Loading your documents...</p>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- UPLOAD VIEW -->
+                <section class="app-view" data-page="upload">
+                    <div class="page-heading">
+                        <p class="eyebrow">ADD TO YOUR VAULT</p>
+                        <h2>Upload a document</h2>
+                        <p class="muted">
+                            Select a file from your device to add it to your collection.
+                        </p>
+                    </div>
+
+                    <section class="panel upload-panel">
+                        <div class="upload-symbol">↑</div>
+                        <h3>Bring your files together</h3>
+                        <p class="muted">
+                            PDF, TXT, DOC, DOCX, PNG, JPG or JPEG · Maximum 10 MB
+                        </p>
+
+                        <form id="upload-form">
+                            <label class="file-picker" for="document-file">
+                                <span class="upload-drop-icon">＋</span>
+                                <strong id="file-label">
+                                    Choose a file from your device
+                                </strong>
+                                <span class="muted">
+                                    Supported file types · Up to 10 MB
+                                </span>
+                                <input id="document-file" type="file"
+                                       accept=".pdf,.txt,.doc,.docx,.png,.jpg,.jpeg"
+                                       required>
+                            </label>
+
+                            <div class="upload-requirements">
+                                <span>✓ Allowed file types</span>
+                                <span>✓ Maximum 10 MB</span>
+                            </div>
+
+                            <button class="button primary full-width"
+                                    type="submit">
+                                Upload document securely
+                            </button>
+                        </form>
+
+                        <p id="upload-message" class="message"
+                           role="status" aria-live="polite"></p>
+
+                        <div class="upload-security-note">
+                            <span>◇</span>
+                            <p>
+                                Uploads are associated with your signed-in account.
+                                Avoid uploading sensitive files until the application
+                                has been reviewed for production security.
+                            </p>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- SECURITY VIEW -->
+                <section class="app-view" data-page="security">
+                    <div class="page-heading">
+                        <p class="eyebrow">ACCOUNT PROTECTION</p>
+                        <h2>Security center</h2>
+                        <p class="muted">
+                            Understand the protections currently provided by TrustVault.
+                        </p>
+                    </div>
+
+                    <section class="panel security-card">
+                        <div class="security-card-icon">◇</div>
+                        <div>
+                            <h3>Account-based document access</h3>
+                            <p class="muted">
+                                The application checks your signed-in session before
+                                allowing document actions and lists your own files.
+                            </p>
+                            <span class="security-tag">Implemented</span>
+                        </div>
+                    </section>
+
+                    <section class="panel security-card">
+                        <div class="security-card-icon">⌑</div>
+                        <div>
+                            <h3>Protected password storage</h3>
+                            <p class="muted">
+                                Passwords are stored as hashes rather than plain text.
+                            </p>
+                            <span class="security-tag">Implemented</span>
+                        </div>
+                    </section>
+
+                    <section class="panel security-card">
+                        <div class="security-card-icon">!</div>
+                        <div>
+                            <h3>Before production deployment</h3>
+                            <p class="muted">
+                                HTTPS, CSRF protection, stronger file-content validation,
+                                and deployment security checks should be completed
+                                before storing real sensitive documents.
+                            </p>
+                            <span class="security-tag attention">Review needed</span>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </section>
+
+        <footer>
+            <span>TrustVault</span>
+            <span>Keep your documents close. Keep your privacy closer.</span>
+        </footer>
+    </main>
+
+    <!-- CONFIRMATION / INFORMATION POPUP -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
