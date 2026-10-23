@@ -1,0 +1,36 @@
+
+# Private configuration and secrets
+.env
+.env.*
+
+# Keep the safe template available for the repository
+!.env.example
+
+# Python virtual environment
+.venv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local database and uploaded documents
+instance/
+uploads/
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+
+# Local backup and diagnostic scripts
+app_backup.py
+check_audit.py
+check_database.py
+sample.txt
+test_document.txt
